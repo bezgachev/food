@@ -16,8 +16,6 @@ function closeModal(modalSelector) {
 }
 
 function modal(triggerSelector, modalSelector, modalTimerId) {
-    //  Modal
-
     const modalTrigger = document.querySelectorAll(triggerSelector),
     modal = document.querySelector(modalSelector);
 
@@ -71,8 +69,6 @@ function modal(triggerSelector, modalSelector, modalTimerId) {
 
 }
 
-
 export default modal;
 export {closeModal};
 export {openModal};
-// module.exports = modal;

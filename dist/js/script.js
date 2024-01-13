@@ -13,8 +13,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function calc() {
-  // Calculating
-
   const result = document.querySelector('.calculating__result span');
   let sex, height, weight, age, ratio;
   if (localStorage.getItem('sex')) {
@@ -103,7 +101,6 @@ function calc() {
   getDynamicInformation('#age');
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (calc);
-// module.exports = calc;
 
 /***/ }),
 
@@ -120,8 +117,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/services */ "./src/js/services/services.js");
 
 function cards() {
-  // Используем классы для карточек "наше меню на день"
-
   class MenuCard {
     constructor(src, alt, title, descr, price, parentSelector, ...classes) {
       this.scr = src;
@@ -145,9 +140,6 @@ function cards() {
       } else {
         this.classes.forEach(className => element.classList.add(className));
       }
-
-      // element.className = 'menu__item';
-
       element.innerHTML = `
                 <img src=${this.scr} alt="${this.alt}">
                 <h3 class="menu__item-subtitle">${this.title}</h3>
@@ -161,24 +153,7 @@ function cards() {
       this.parent.append(element);
     }
   }
-
-  // const getResourse = async (url) => {
-  //     const res = await fetch(url);
-
-  //     if (!res.ok) {
-  //         throw new Error(`Could not fetch ${url}, status: ${res.status}`);
-  //     }
-
-  //     return await res.json();
-  // };
-
-  // с исп. шаблонизации через классы
   (0,_services_services__WEBPACK_IMPORTED_MODULE_0__.getResourse)('http://localhost:3000/menu').then(data => {
-    // так нельзя исп! только с исп. деструктуризации {}
-    // data.forEach(obj => {
-    //     new MenuCard(obj.img, obj.altimg, obj.title, obj.descr, obj.price).render();
-    // });
-
     data.forEach(({
       img,
       altimg,
@@ -250,7 +225,6 @@ function cards() {
   // ).render();
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cards);
-// module.exports = cards;
 
 /***/ }),
 
@@ -269,8 +243,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function forms(formSelector, modalTimerId) {
-  // Forms
-
   const forms = document.querySelectorAll(formSelector);
   const message = {
     loading: 'img/form/spinner.svg',
@@ -408,7 +380,6 @@ function forms(formSelector, modalTimerId) {
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (forms);
-// module.exports = forms;
 
 /***/ }),
 
@@ -440,8 +411,6 @@ function closeModal(modalSelector) {
   document.body.style.overflow = '';
 }
 function modal(triggerSelector, modalSelector, modalTimerId) {
-  //  Modal
-
   const modalTrigger = document.querySelectorAll(triggerSelector),
     modal = document.querySelector(modalSelector);
 
@@ -490,7 +459,6 @@ function modal(triggerSelector, modalSelector, modalTimerId) {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);
 
 
-// module.exports = modal;
 
 /***/ }),
 
@@ -514,8 +482,6 @@ function slider({
   wrapper,
   field
 }) {
-  // Slider
-
   const slider = document.querySelector(container),
     slides = document.querySelectorAll(slide),
     next = document.querySelector(nextArrow),
@@ -529,7 +495,6 @@ function slider({
   let offset = 0;
 
   // 1 вариант
-
   /*
       function totalSlides() {
           if (slides.length < 10) {
@@ -654,7 +619,6 @@ function slider({
   changeCurrentSlides();
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (slider);
-// module.exports = slider;
 
 /***/ }),
 
@@ -669,8 +633,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass) {
-  // Tabs
-
   const tabs = document.querySelectorAll(tabsSelector),
     tabsContent = document.querySelectorAll(tabsContentSelector),
     tabsParent = document.querySelector(tabsParentSelector);
@@ -705,7 +667,6 @@ function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tabs);
-// module.exports = tabs;
 
 /***/ }),
 
@@ -720,17 +681,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 function timer(id, deadline) {
-  // Timer
-
   function getTimeRemaining(endtime) {
     let days, hours, minutes, seconds;
     const t = Date.parse(endtime) - Date.parse(new Date());
     if (t <= 0) {
       days = hours = minutes = seconds = 0;
-      // days = 0;
-      // hours = 0;
-      // minutes = 0;
-      // seconds = 0;
     } else {
       days = Math.floor(t / (1000 * 60 * 60 * 24));
       hours = Math.floor(t / (1000 * 60 * 60) % 24);
@@ -747,11 +702,6 @@ function timer(id, deadline) {
   }
   function getZero(num) {
     return num >= 0 && num < 10 ? `0${num}` : num;
-    // if (num >= 0 && num < 10) {
-    //     return `0${num}`;
-    // } else {
-    //     return num;
-    // }
   }
   function setClock(selector, endtime) {
     const timer = document.querySelector(selector),
@@ -775,7 +725,6 @@ function timer(id, deadline) {
   setClock(id, deadline);
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timer);
-// module.exports = timer;
 
 /***/ }),
 
@@ -891,10 +840,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener('DOMContentLoaded', function () {
+  "use strict";
+
   const modalTimerId = setTimeout(() => (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__.openModal)('.modal', modalTimerId), 5000000);
   (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_0__["default"])('.tabheader__item', '.tabcontent', '.tabheader__items', 'tabheader__item_active');
   (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])('[data-modal]', '.modal', modalTimerId);
-  (0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__["default"])('.timer', '2023-12-31 00:00');
+  (0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__["default"])('.timer', '2024-05-31 00:00');
   (0,_modules_cards__WEBPACK_IMPORTED_MODULE_3__["default"])();
   (0,_modules_calc__WEBPACK_IMPORTED_MODULE_4__["default"])();
   (0,_modules_forms__WEBPACK_IMPORTED_MODULE_5__["default"])('form', modalTimerId);

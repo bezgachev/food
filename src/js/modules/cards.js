@@ -2,8 +2,6 @@ import { getResourse } from "../services/services";
 
 function cards() {
     
-    // Используем классы для карточек "наше меню на день"
-
     class MenuCard {
         constructor(src, alt, title, descr, price, parentSelector, ...classes) {
             this.scr = src;
@@ -30,8 +28,6 @@ function cards() {
 				this.classes.forEach(className => element.classList.add(className));
 			}
 
-            // element.className = 'menu__item';
-
             element.innerHTML = `
                 <img src=${this.scr} alt="${this.alt}">
                 <h3 class="menu__item-subtitle">${this.title}</h3>
@@ -48,28 +44,11 @@ function cards() {
         }
     }
 
-    // const getResourse = async (url) => {
-    //     const res = await fetch(url);
-
-    //     if (!res.ok) {
-    //         throw new Error(`Could not fetch ${url}, status: ${res.status}`);
-    //     }
-
-    //     return await res.json();
-    // };
-
-    // с исп. шаблонизации через классы
     getResourse('http://localhost:3000/menu')
         .then(data => {
-            // так нельзя исп! только с исп. деструктуризации {}
-            // data.forEach(obj => {
-            //     new MenuCard(obj.img, obj.altimg, obj.title, obj.descr, obj.price).render();
-            // });
-
             data.forEach(({img, altimg, title, descr, price}) => {
                 new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
             });
-
         });
 
 
@@ -107,7 +86,6 @@ function cards() {
     //         });
     //     });
 
-
 	// new MenuCard(
 	// 	'img/tabs/vegy.jpg',
 	// 	'vegy',
@@ -136,4 +114,3 @@ function cards() {
 	// ).render();
 }
 export default cards;
-// module.exports = cards;

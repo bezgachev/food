@@ -1,6 +1,4 @@
 function slider({container, slide, nextArrow, prevArrow, totalCounter, currentCounter, wrapper, field }) {
-    // Slider
-
     const slider = document.querySelector(container),
           slides = document.querySelectorAll(slide),
           next = document.querySelector(nextArrow),
@@ -14,9 +12,7 @@ function slider({container, slide, nextArrow, prevArrow, totalCounter, currentCo
     let slideIndex = 1;
     let offset = 0;
 
-
     // 1 вариант
-
     /*
         function totalSlides() {
             if (slides.length < 10) {
@@ -60,7 +56,6 @@ function slider({container, slide, nextArrow, prevArrow, totalCounter, currentCo
         totalSlides();
     */
 
-
     // 2 вариант. Добавили div.offer__slider-inner обвертку для слайдов
     slidesWrapper.style.overflow = 'hidden';
     slidesField.style.cssText = `
@@ -68,7 +63,6 @@ function slider({container, slide, nextArrow, prevArrow, totalCounter, currentCo
         display: flex;
         transition: 0.5s all;
     `;
-
 
     function totalSlides() {
         if (slides.length < 10) {
@@ -80,7 +74,6 @@ function slider({container, slide, nextArrow, prevArrow, totalCounter, currentCo
 
     totalSlides();
 
-
     slides.forEach(slide => {
         slide.style.width = width;
     });
@@ -88,7 +81,6 @@ function slider({container, slide, nextArrow, prevArrow, totalCounter, currentCo
     slider.style.position = 'relative';
     const indicators = document.createElement('ol'),
           dots = [];
-
 
     indicators.classList.add('carousel-indicators');
     slider.append(indicators);
@@ -129,7 +121,6 @@ function slider({container, slide, nextArrow, prevArrow, totalCounter, currentCo
         changeCurrentSlides();
     });
 
-
     prev.addEventListener('click', () => {
         if (offset == 0) {
             offset = deleteNotDigits(width) * (slides.length - 1);
@@ -167,6 +158,4 @@ function slider({container, slide, nextArrow, prevArrow, totalCounter, currentCo
     changeCurrentSlides();
 }
 
-
 export default slider;
-// module.exports = slider;

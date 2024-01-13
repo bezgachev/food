@@ -8,12 +8,13 @@ import slider from './modules/slider';
 import {openModal} from './modules/modal';
 
 document.addEventListener('DOMContentLoaded', function() {
-
+    "use strict";
+    
     const modalTimerId = setTimeout(() => openModal('.modal', modalTimerId), 5000000);
 
     tabs('.tabheader__item', '.tabcontent', '.tabheader__items', 'tabheader__item_active');
     modal('[data-modal]', '.modal', modalTimerId);
-    timer('.timer', '2023-12-31 00:00');
+    timer('.timer', '2024-05-31 00:00');
     cards();
     calc();
     forms('form', modalTimerId);
@@ -27,6 +28,5 @@ document.addEventListener('DOMContentLoaded', function() {
         wrapper: '.offer__slider-wrapper',
         field: '.offer__slider-inner'
     });
-
 
 });

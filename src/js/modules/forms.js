@@ -2,8 +2,7 @@ import { closeModal, openModal } from "./modal";
 import { postData } from "../services/services";
 
 function forms(formSelector, modalTimerId) {
-    // Forms
-    
+
     const forms = document.querySelectorAll(formSelector);
     const message = {
         loading: 'img/form/spinner.svg',
@@ -164,6 +163,4 @@ function forms(formSelector, modalTimerId) {
     }
 }
 
-
 export default forms;
-// module.exports = forms;

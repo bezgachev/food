@@ -91,7 +91,7 @@ gulp.task(
 	gulp.parallel("copy-html", "copy-assets", "build-sass", "build-js")
 );
 
-gulp.task("prod", () => {
+gulp.task("build-prod-js", () => {
 	gulp.src("./src/index.html").pipe(gulp.dest(dist));
 	gulp.src("./src/img/**/*.*").pipe(gulp.dest(dist + "/img"));
 	gulp.src("./src/icons/**/*.*").pipe(gulp.dest(dist + "/icons"));
@@ -102,7 +102,7 @@ gulp.task("prod", () => {
 			webpack({
 				mode: "production",
 				output: {
-					filename: "script.js",
+					filename: "script-prod.js",
 				},
 				module: {
 					rules: [
